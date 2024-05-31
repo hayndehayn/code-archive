@@ -1,21 +1,20 @@
 import math
 
-#! D = b^2 - 4ac
-
-number_a = int(input("Введіть A: "))
-number_b = int(input("Введіть B: "))
-number_c = int(input("Введіть C: "))
+number_a = int(input("Input A: "))
+number_b = int(input("Input B: "))
+number_c = int(input("Input  C: "))
 
 if number_a == 0:
-    print("А не може дорівнювати нулю")
+    print("А cannot be zero")
 if number_b == 0 or number_c == 0:
-    print("Такого рівняння не може бути")
+    print("There can be no such equation")
 
 def summarizeElements(a, b, c):
     global X1
     global X2
     global delta
     
+    #* Delta Calculation
     delta = abs((b**2) - (-4 * a * c))
     print(delta)
     
@@ -31,6 +30,3 @@ def summarizeElements(a, b, c):
     print("X1 is: ", X1)
     print("X2 is: ", X2)
 summarizeElements(number_a, number_b, number_c)
-
-def summarizeKanoniczna():
-    pass
