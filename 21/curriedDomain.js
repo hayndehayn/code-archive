@@ -6,5 +6,5 @@ function curriedDomain(protocol) {
   };
 }
 
-const fullDomain = curriedDomain('httpss')('example')('com');
-console.log('Full Domain:', fullDomain); // Виведе: https://example.com
+const fullDomain = curriedDomain('https')('example')('com');
+console.log('Full Domain:', fullDomain);
