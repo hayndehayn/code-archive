@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myButton">Натисни мене</button>
+    <script src="main.js"></script>
+
+    <h1>Список</h1>
+    <ul id="testList">
+        <li>Елемент 1</li>
+        <li>Елемент 2</li>
+        <li>Елемент 3</li>
+    </ul>
+
+    <script>
+        function setupEventDelegation(selector) {
+        const list = document.querySelector(selector);
+        list.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+            console.log(`Клікнуто по елементу: ${event.target.textContent.trim()}`);
+            }
+        });
+        }
+        setupEventDelegation('#testList');
+    </script>
+</body>
+</html>
