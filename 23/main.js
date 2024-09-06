@@ -1,4 +1,4 @@
-//! #1
+//#1
 class CalorieCalculator {
   constructor(products) {
     this.products = new Map();
@@ -51,7 +51,6 @@ class UniqueUsernames {
 
 const uniqueUsernames = new UniqueUsernames();
 uniqueUsernames.addUser('john_doe');
-uniqueUsernames.addUser('shovel');
 uniqueUsernames.addUser('jane_doe');
 uniqueUsernames.addUser('john_doe'); // Ця дія не змінить набір
 

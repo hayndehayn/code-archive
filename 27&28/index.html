@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайд-шоу</title>
+    <link rel="stylesheet" href="style.css"> </head>
+    <script src="main.js"></script>
+<body>
+    <main class="carousel-container">
+        <div class="carousel">
+            <div class="item active">
+            <img src="img/img-1.png" alt="Image 1" />
+            <p class="caption">Покровська сотня 1917</p>
+            </div>
+            <div class="item">
+            <img src="img/img-2.png" alt="Image 2" />
+            <p class="caption">Царевич та варта</p>
+            </div>
+            <div class="item">
+            <img src="img/img-3.jpg" alt="Image 3" />
+            <p class="caption">Гетьманівна</p>
+            </div>
+        </div>
+        <div class="dots"></div>
+    </main>
+    <script>
+        const slider = new Slider('.carousel', {
+            interval: 5000,
+            showDots: false,
+        });
+    </script>
+</body>
+</html>

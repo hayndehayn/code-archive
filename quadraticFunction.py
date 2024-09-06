@@ -2,7 +2,7 @@ import math
 
 number_a = int(input("Input A: "))
 number_b = int(input("Input B: "))
-number_c = int(input("Input  C: "))
+number_c = int(input("Input C: "))
 
 if number_a == 0:
     print("А cannot be zero")

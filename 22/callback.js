@@ -10,7 +10,6 @@ const myCounter = counter(100);
 console.log(myCounter()); // 100
 console.log(myCounter()); // 101
 
-
 //! #2
 function counterFactory() {
     let count = 0;
@@ -66,6 +65,6 @@ const myMul = (a, b) => {
 }
 const myDouble = myMul.bind(null, 2);
 const myTriple = myMul.bind(null, 3);
-console.log(myDouble(3))
-console.log(myTriple(3))
+console.log(myDouble(3));
+console.log(myTriple(3));
 console.log(myMul(4, 2));
