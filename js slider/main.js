@@ -77,9 +77,9 @@ document.addEventListener("DOMContentLoaded", function () {
     //* Autoscroll
     function autoplay() {
         intervalId = setInterval(() => {
-        let activeIndex = [...items].findIndex((item) => item.classList.contains("active"));
-        let newIndex = (activeIndex + 1) % items.length;
-        showItem(newIndex);
+            let activeIndex = [...items].findIndex((item) => item.classList.contains("active"));
+            let newIndex = (activeIndex + 1) % items.length;
+            showItem(newIndex);
         }, config.interval);
     }
 
