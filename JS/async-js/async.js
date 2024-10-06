@@ -23,26 +23,27 @@
  * - Належне управління помилками та виключеннями.
  * - Код має бути чистим, добре структурованим, зі зрозумілими назвами змінних та функцій.
  *
-*/
+ */
 
 async function getData(segment) {
   try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/" + segment)
-    console.log(response)
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/" + segment
+    );
+    console.log(response);
 
-    if(response.ok) {
-      const data = await response.json()
-      console.log(data)
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
     } else {
-      throw new Error(response.status)
+      throw new Error(response.status);
     }
-
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 //getData("/posts")
-getData("/posts/1")
+getData("/posts/1");
 
 /*
  *
@@ -68,40 +69,43 @@ getData("/posts/1")
  * - Використання сучасних можливостей JavaScript (ES6+), зокрема асинхронних функцій (`async/await`).
  * - Належне управління помилками та відповідями від API.
  *
-*/
+ */
 
 //? POST
 async function postData(segment, data) {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com${segment}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com${segment}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`Network response was not ok: ${response.statusText}`);
     }
 
     const result = await response.json();
-    console.log('Success:', result);
+    console.log("Success:", result);
     return result;
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
     return Promise.reject(error);
   }
 }
 const dataToSend = {
-  title: 'foo',
-  body: 'bar',
+  title: "foo",
+  body: "bar",
   userId: 1,
 };
 
-postData('/posts', dataToSend)
-  .then(result => console.log('Received data:', result))
-  .catch(error => console.error('Error:', error));
+postData("/posts", dataToSend)
+  .then((result) => console.log("Received data:", result))
+  .catch((error) => console.error("Error:", error));
 
 /*
  * #3
@@ -131,35 +135,37 @@ postData('/posts', dataToSend)
 //? PUT
 async function putData(id, data) {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data), 
-    });
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`Failed to update data: ${response.statusText}`);
     }
     const result = await response.json();
-    console.log('Data updated successfully:', result);
+    console.log("Data updated successfully:", result);
     return result;
-
   } catch (error) {
-    console.error('Error updating data:', error);
+    console.error("Error updating data:", error);
     return Promise.reject(error);
   }
 }
 
 const updatedData = {
-  title: 'New Title',
-  body: 'New Content'
-}
+  title: "New Title",
+  body: "New Content",
+};
 
 putData(1, updatedData)
-  .then(result => console.log('Updated post:', result))
-  .catch(result => console.log('Error:', error))
+  .then((result) => console.log("Updated post:", result))
+  .catch((result) => console.log("Error:", error));
 
 /*
  * #4
@@ -189,34 +195,37 @@ putData(1, updatedData)
 //? PATCH
 async function patchData(id, data) {
   try {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`Failed to patch data: ${response.statusText}`);
     }
 
     const result = await response.json();
-    console.log('Data patched successfully:', result);
+    console.log("Data patched successfully:", result);
     return result;
   } catch (error) {
-    console.error('Error patching data:', error);
+    console.error("Error patching data:", error);
     return Promise.reject(error);
   }
 }
 
 const patchedData = {
-  title: 'Patched'
-}
+  title: "Patched",
+};
 
 patchData(1, patchedData)
-  .then(result => console.log('Patched post:', result))
-  .catch(result => console.log('Error:', error))
+  .then((result) => console.log("Patched post:", result))
+  .catch((result) => console.log("Error:", error));
 
 /*
  *
@@ -249,15 +258,20 @@ patchData(1, patchedData)
 //? Delete
 async function deleteData(id) {
   try {
-  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-    method: 'DELETE',
-  });
-  if (!response.ok) {
-    throw new Error(`Failed to delete post with id ${id}. Status: ${response.status}`);
-  }
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    if (!response.ok) {
+      throw new Error(
+        `Failed to delete post with id ${id}. Status: ${response.status}`
+      );
+    }
 
-  console.log(`Post with id ${id} has been successfully deleted.`);
-  return true;
+    console.log(`Post with id ${id} has been successfully deleted.`);
+    return true;
   } catch (error) {
     console.error(`Error during deletion: ${error.message}`);
     return error.message;
@@ -265,5 +279,5 @@ async function deleteData(id) {
 }
 
 deleteData(1)
-  .then(result => console.log('Deletion successful'))
-  .catch(error => console.error('Error:', error));
+  .then((result) => console.log("Deletion successful"))
+  .catch((error) => console.error("Error:", error));
