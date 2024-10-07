@@ -9,7 +9,7 @@ def dwieLiczby(num1, num2):
     print(f"num1 + num2 to: {sum}")
 dwieLiczby(10, 14)
 
-#3 Biore element ze listy
+#3 Biore element z listy
 def ulubioneKolory():
     args = ["Czarny", "Biały", "Żółty", "Różowy", "Fioletowy", "Zielony"]
     print(f"Ulubiony kolor: {args[5]}")

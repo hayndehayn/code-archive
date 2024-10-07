@@ -9,14 +9,16 @@ type User = {
   age: number
   isActive: boolean
 }
-function createUser(name: string, age: number, isActive: boolean = true) {
+function createUser(user: User) {
   return {
-    name,
-    age, 
-    isActive
+    ...user,
   }
 }
-const newUser = createUser('Olha', 86);
+const newUser = createUser({
+  name: 'Olha',
+  age: 86,
+  isActive: true,
+});
 console.log(newUser);
 
 // 3. 
